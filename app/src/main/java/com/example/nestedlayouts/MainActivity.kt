@@ -1,71 +1,52 @@
 package com.example.nestedlayouts
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
+import kotlin.reflect.typeOf
+
 
 class MainActivity : AppCompatActivity() {
-    private var counter: Int = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val button: Button = findViewById(R.id.button)
-        var tv1: TextView = findViewById(R.id.textView)
-        var tv2: TextView = findViewById(R.id.textView2)
-        var tv3: TextView = findViewById(R.id.textView3)
-        var tv4: TextView = findViewById(R.id.textView4)
-        var tv5: TextView = findViewById(R.id.textView5)
-        var tv6: TextView = findViewById(R.id.textView6)
-        var tv7: TextView = findViewById(R.id.textView7)
-        var tv8: TextView = findViewById(R.id.textView8)
-        var tv9: TextView = findViewById(R.id.textView9)
-        var i = 0
-        var schet = 1
+        setContentView(R.layout.activity_main)
+        val myButton: Button = findViewById(R.id.button)
+        val text1: TextView = findViewById(R.id.textView)
+        val text2: TextView = findViewById(R.id.textView2)
+        val text3: TextView = findViewById(R.id.textView3)
+        val text4: TextView = findViewById(R.id.textView4)
+        val text5: TextView = findViewById(R.id.textView5)
+        val text6: TextView = findViewById(R.id.textView6)
+        val text7: TextView = findViewById(R.id.textView7)
+        val text8: TextView = findViewById(R.id.textView8)
+        val text9: TextView = findViewById(R.id.textView9)
+        val myArray = arrayOf(text1, text2, text3)
+        var count: Int = 1
 
-        button.setOnClickListener {
+        myButton.setOnClickListener {
+            when(count) {
+                1 -> {
+                    count++
+                    text1.setText("");
+                    text4.setText("");
+                    text7.setText("");
+                    text2.text = count.toString();
+                    text5.text = count.toString();
+                    text8.text = count.toString();
 
-
-            if (tv4.text == "1") {
-
-                tv1.setTextColor(Color.TRANSPARENT)
-                tv2.text = "2"
-                tv2.setTextColor(Color.BLACK)
-                tv4.text = "2"
-                tv8.text = "2"
-                tv8.setTextColor(Color.BLACK)
-                tv7.setTextColor(Color.TRANSPARENT)
-
+                }
+                2 -> {
+                    count++
+                    text2.setText("");
+                    text5.setText("");
+                    text8.setText("");
+                    text3.text = count.toString();
+                    text6.text = count.toString();
+                    text9.text = count.toString();
+                }
             }
-            else if (tv4.text == "2") {
-
-                tv1.setTextColor(Color.TRANSPARENT)
-                tv2.setTextColor(Color.TRANSPARENT)
-                tv4.text = "3"
-                tv4.setTextColor(Color.BLACK)
-                tv8.setTextColor(Color.TRANSPARENT)
-                tv3.text = "3"
-                tv3.setTextColor(Color.BLACK)
-                tv9.text = "3"
-                tv9.setTextColor(Color.BLACK)
-
-            }
-            else
-            {
-
-                tv1.text = "1"
-                tv1.setTextColor(Color.BLACK)
-                tv2.setTextColor(Color.TRANSPARENT)
-                tv4.text = "1"
-                tv9.setTextColor(Color.TRANSPARENT)
-                tv7.text = "1"
-                tv7.setTextColor(Color.BLACK)
-                tv3.setTextColor(Color.TRANSPARENT)
-
-            }
-
         }
     }
 }
